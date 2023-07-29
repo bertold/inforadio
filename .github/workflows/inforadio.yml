@@ -1,0 +1,27 @@
+name: Inforadio Feed Update
+run-name: Inforadio Feed Update
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+jobs:
+  Create-New-Feed:
+    name: Create New Feed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+  Run-Playwright:
+    name: Run Playwright
+    runs-on: ubuntu-latest
+    container:
+      image: pennyvault/playwright-go
+    steps:
+      - name: Verify that dir is mounted
+        run: ls -la /github/workspace
+  Updaet-Feed:
+      name: Commit and Push
+      runs-on: ubuntu-latest
+      steps:
+        - name: Commit and push
+          run: echo "here we push the new feed"
