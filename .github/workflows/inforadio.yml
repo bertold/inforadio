@@ -16,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: pennyvault/playwright-go
+      volumes:
+        - /home/runner/work/inforadio/inforadio:/mnt
     steps:
       - name: Verify that dir is mounted
-        run: ls -la
-  Updaet-Feed:
+        run: ls -l /mnt      
+  Update-Feed:
       name: Commit and Push
       runs-on: ubuntu-latest
       steps:
