@@ -18,7 +18,7 @@ jobs:
       image: pennyvault/playwright-go
     steps:
       - name: Verify that dir is mounted
-        run: ls -la /github/workspace
+        run: ls -la
   Updaet-Feed:
       name: Commit and Push
       runs-on: ubuntu-latest
