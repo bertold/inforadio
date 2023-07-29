@@ -17,5 +17,9 @@ jobs:
           go-version: '1.20'
       - name: Install libs
         run: go run github.com/playwright-community/playwright-go/cmd/playwright@latest install --with-deps
-      - name: Test if PW is available
-        run: playwright --version
+      - name: Build
+        run: go build
+      - name: Update feed
+        run: ./inforadio
+      - name: Push and Commit
+        run: ./commit-feed.sh
